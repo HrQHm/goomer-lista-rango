@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  database_postgress:
+    image: postgres
+    container_name: database_postgress_container
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=goomer_api
+    volumes:
+      - pgdata:/data/postgres
+
+  app:
+    build: .
+    container_name: goomer_api
+    ports:
+      - 3333:3333
+      - 9229:9229
+    volumes:
+      - .:/usr/app
+    links:
+      - database_postgress
+    depends_on:
+      - database_postgress
+
+volumes:
+  pgdata:
+    driver: local
