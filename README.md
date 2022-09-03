@@ -11,6 +11,7 @@ API RESTful capaz de gerenciar os restaurantes e os produtos do seu cardápio.
  <a href="#features">Features</a> •
  <a href="#arquitetura">Arquitetura</a> •
  <a href="#como-usar">Como usar</a> •
+ <a href="#considerações">Considerações</a> •
 </p>
 
 
@@ -96,3 +97,10 @@ src/
 |-- shared/infra/typeorm # Migrations.
 ```
 ---
+
+## Considerações Finais
+
+Durante o desenvolvimento tive dificuldades na questão de visualizar como/qual seria a melhor de vincular a promoção ao produto. No caso se deveria criar uma tabela apenas para promoções, ou criar um campo de array para permitir inserir os horários/dias de promoções. Enfim pensando qual seria a melhor solução para este caso. 
+Existe um ponto à ser dito é que não tratei a questão do formato do horário, pois na minha visão isso deveria ser tratado no front da aplicação. Por isso não implementei este trecho.
+Em quanto a questão de melhoria, olhando do ponto de vista do backend, seria bem interessante a criação da figura do 'Usuário'. Por exemplo apenas usuários autorizados pow JWT poderiam acessar as rotas, mas dados mais sensíveis apenas usuários administradores. Levaria esta aplicação/desafio à um novo nível.
+
